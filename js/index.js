@@ -98,10 +98,10 @@ var app = {
 */
 sendone: function() {
     bluetoothSerial.write(1, success, failure);
-    }
+    },
 sendzero: function() {
     bluetoothSerial.write(0, success, failure);
-    }
+    },
 
 
     openPort: function() {
