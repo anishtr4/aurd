@@ -97,10 +97,10 @@ var app = {
     and changes the button:
 */
 sendone: function() {
-    bluetoothSerial.write(1, success, failure);
+    bluetoothSerial.write("1", success, failure);
     },
 sendzero: function() {
-    bluetoothSerial.write(0, success, failure);
+    bluetoothSerial.write("0", success, failure);
     },
 
 
