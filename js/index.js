@@ -23,6 +23,8 @@ var app = {
     bindEvents: function() {
         document.addEventListener('deviceready', this.onDeviceReady, false);
         connectButton.addEventListener('touchend', app.manageConnection, false);
+        one.addEventListener('touchend', app.sendone, false);
+        zero.addEventListener('touchend', app.sendzero, false);
     },
 
 /*
@@ -94,6 +96,14 @@ var app = {
     subscribes to a Bluetooth serial listener for newline
     and changes the button:
 */
+sendone: function() {
+    bluetoothSerial.write(1, success, failure);
+    }
+sendzero: function() {
+    bluetoothSerial.write(0, success, failure);
+    }
+
+
     openPort: function() {
         // if you get a good Bluetooth serial connection:
         app.display("Connected to: " + app.macAddress);
