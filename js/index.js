@@ -38,12 +38,30 @@ var app = {
             // list the available BT ports:
             bluetoothSerial.discoverUnpaired(
                 function(results) {
+					alert(results);
                     app.displayunpair(JSON.stringify(results));
                 },
                 function(error) {
                     app.displayunpair(JSON.stringify(error));
                 }
             );
+			bluetoothSerial.discoverUnpaired(function(devices) {
+	    var display = document.getElementById("popUpDiv"), // the message div
+            lineBreak = document.createElement("br")     // a line break
+    devices.forEach(function(device) {
+        console.log(device.id);
+	
+		    var devicename = unpairdevice.name;
+			var deviceaddress = unpairdevice.address;
+			alert(devicename);
+			alert(deviceaddress);
+            
+
+        display.appendChild(lineBreak);          // add a line break
+        display.appendChild(label);              // add the message node
+		$('#popUpDiv').append("<div class='devices' onclick='manageConnection("+deviceaddress+")' >"+devicename+"</div>");
+    })
+}, failure);
         }
 
         // if isEnabled returns failure, this function is called:
@@ -155,20 +173,7 @@ sendzero: function() {
         display.appendChild(lineBreak);          // add a line break
         display.appendChild(label);              // add the message node
     },
-	  displayunpair: function(unpairdevice) {
-		  alert(unpairdevice);
-        var display = document.getElementById("popUpDiv"), // the message div
-            lineBreak = document.createElement("br")     // a line break
-		    devicename = unpairdevice.name;
-			deviceaddress = unpairdevice.address;
-			alert(devicename);
-			alert(deviceaddress);
-            
 
-        display.appendChild(lineBreak);          // add a line break
-        display.appendChild(label);              // add the message node
-		$('#popUpDiv').append("<div class='devices' onclick='manageConnection("+deviceaddress+")' >"+devicename+"</div>");
-    },
 /*
     clears the message div:
 */
