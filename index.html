@@ -4,128 +4,18 @@
     <head>
         <title>Simple Serial</title>
     </head>
-   <style>
-        body {
-            font: 300 16px/20px Roboto, sans-serif;
-            padding: 0;
-            margin: 0;
-        }
-        body > header {
-            background: #303F9F;
-            padding: 10px;
-        }
-        h2 {
-            font-size: 20px;
-            line-height: 48px;
-            margin: 0;
-            color: #FFFFFF;
-			    display: inline-block;
-        }
-        .card {
-            float: left;
-            margin: 20px;
-            position: relative;
-            width: 120px;
-            height: 120px;
-            text-align: center;
-            box-shadow: 0 0 6px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.2);
-            overflow: hidden;
-            cursor: pointer;
-            transition: box-shadow 0.35s cubic-bezier(0.35, 0, 0.25, 1);
-            border-radius: 2px;
-        }
-        .card:hover {
-            box-shadow: 0 0 12px rgba(0, 0, 0, 0.2), 0 6px 12px rgba(0, 0, 0, 0.4);
-        }
-        .card .blue {
-            background: #3F51B5;
-        }
-        .card .blue .contents {
-            color: #000;
-        }
-        .card .white {
-            background: white;
-            margin-top: 50px;
-        }
-        .card p {
-            font-size: 20px;
-            font-weight: bold;
-        }
-        .bluebox {
-            width: 100%;
-            max-width: 320px;
-            padding: 10px;
-            margin: 0 auto;
-            overflow: hidden;
-        }
-        hr {
-            width: 94%;
-            margin: 0 auto;
-            position: relative;
-        }
-		img#connectButton
-		{
-			width:40px;
-		}
-		div#ui {
-    display: inline-block;
-    float: right;
-}
-    </style>
+
     <body>
-    
-     <header>
-
-        <h2>BLUE BOX</h2>
-          <div id="ui">
-        <img src="conect.png" id="connectButton">
-          </div>
-    </header>
-    
-            
-          
+        <div class="app">
+            <div id="ui">
+                <button id="connectButton">Connect</button>
+            </div>
         <div id="message">Hello.</div>
-    <div class="bluebox">
-        <div class="card" id="one">
-            <div class="white">
-                <div class="contents">
 
-                    <p>ON</p>
-                </div>
-            </div>
         </div>
-        <div class="card" id="zero">
-            <div class="white">
-                <div class="contents">
-
-                    <p>OFF</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <hr>
-    <div class="bluebox">
-        <div class="card">
-            <div class="white">
-                <div class="contents">
-
-                    <p>ON</p>
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="white">
-                <div class="contents">
-
-                    <p>OFF</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <hr>
-    
-    
-       
+        <button id="one">1</button>
+        <button id="zero">2</button>
+        <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script>
             app.initialize();
