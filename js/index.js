@@ -36,12 +36,12 @@ var app = {
         //if isEnabled(), below, returns success:
         var listPorts = function() {
             // list the available BT ports:
-            bluetoothSerial.list(
+            bluetoothSerial.discoverUnpaired(
                 function(results) {
-                    app.display(JSON.stringify(results));
+                    app.displayunpair(JSON.stringify(results));
                 },
                 function(error) {
-                    app.display(JSON.stringify(error));
+                    app.displayunpair(JSON.stringify(error));
                 }
             );
         }
@@ -57,10 +57,11 @@ var app = {
             notEnabled
         );
     },
+	
 /*
     Connects if not connected, and disconnects if connected:
 */
-    manageConnection: function() {
+    manageConnection: function(myaddress) {
 
         // connect() will get called only if isConnected() (below)
         // returns failure. In other words, if not connected, then connect:
@@ -72,7 +73,7 @@ var app = {
                 "Make sure the serial port is open on the target device.");
             // attempt to connect:
             bluetoothSerial.connect(
-                app.macAddress,  // device to connect to
+                app.myaddress,  // device to connect to
                 app.openPort,    // start listening if you succeed
                 app.showError    // show the error if you fail
             );
@@ -153,6 +154,19 @@ sendzero: function() {
 
         display.appendChild(lineBreak);          // add a line break
         display.appendChild(label);              // add the message node
+    },
+	  displayunpair: function(unpairdevice) {
+        var display = document.getElementById("popUpDiv"), // the message div
+            lineBreak = document.createElement("br")     // a line break
+		    devicename = unpairdevice.name;
+			deviceaddress = unpairdevice.address;
+			alert(devicename);
+			alert(deviceaddress);
+            
+
+        display.appendChild(lineBreak);          // add a line break
+        display.appendChild(label);              // add the message node
+		$('#popUpDiv').append("<div class='devices' onclick='manageConnection("+deviceaddress+")' >"+devicename+"</div>");
     },
 /*
     clears the message div:
