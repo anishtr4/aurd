@@ -36,23 +36,15 @@ var app = {
         //if isEnabled(), below, returns success:
         var listPorts = function() {
             // list the available BT ports:
-            bluetoothSerial.discoverUnpaired(
-                function(results) {
-					alert(results);
-                    app.displayunpair(JSON.stringify(results));
-                },
-                function(error) {
-                    app.displayunpair(JSON.stringify(error));
-                }
-            );
+      
 			bluetoothSerial.discoverUnpaired(function(devices) {
 	    var display = document.getElementById("popUpDiv"), // the message div
             lineBreak = document.createElement("br")     // a line break
     devices.forEach(function(device) {
         console.log(device.id);
 	
-		    var devicename = unpairdevice.name;
-			var deviceaddress = unpairdevice.address;
+		    var devicename = device.name;
+			var deviceaddress = device.address;
 			alert(devicename);
 			alert(deviceaddress);
             
