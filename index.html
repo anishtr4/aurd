@@ -71,6 +71,16 @@
     display: inline-block;
     float: right;
 }
+#message
+{
+	    position: absolute;
+    bottom: 0;
+    width: 100%;
+    min-height: 30px;
+    background-color: #303F9F;
+	color:#fff;
+	text-align:center;
+}
 	</style>
 
     <body>
@@ -83,14 +93,7 @@
         <img src="conect.png"  id="connectButton">
           </div>
     </header>
-            <div id="ui">
-                <button >Connect</button>
-            </div>
-        <div id="message">Hello.</div>
-
-        </div>
-        
-         <div class="bluebox">
+            <div class="bluebox">
         <div class="card" id="one">
             <div class="white">
                 <div class="contents">
@@ -108,7 +111,13 @@
             </div>
         </div>
     </div>
-    <hr>
+       <hr>
+        <div id="message">Status</div>
+
+        </div>
+        
+         
+ 
      
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
