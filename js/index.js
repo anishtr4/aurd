@@ -156,6 +156,7 @@ sendzero: function() {
         display.appendChild(label);              // add the message node
     },
 	  displayunpair: function(unpairdevice) {
+		  alert(unpairdevice);
         var display = document.getElementById("popUpDiv"), // the message div
             lineBreak = document.createElement("br")     // a line break
 		    devicename = unpairdevice.name;
